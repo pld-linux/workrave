@@ -1,3 +1,7 @@
+#
+# Conditional build:
+# _without_gnome - build without GNOME support
+#
 Summary:	Program that assists in the recovery and prevention of RSI
 Summary(pl):	Program pomagaj±cy w rekonwalescencji i zapobieganiu RSI
 Name:		workrave
