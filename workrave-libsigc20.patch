@@ -1,0 +1,11 @@
+--- ./frontend/plugin/distribution/gtkmm/src/NetworkPreferencePage.cc.org	2004-04-29 21:01:07.195707714 +0200
++++ ./frontend/plugin/distribution/gtkmm/src/NetworkPreferencePage.cc	2004-04-29 20:56:49.735368333 +0200
+@@ -357,7 +357,7 @@
+   const Gtk::TreeSelection::SlotForeachIter& slot =
+     sigc::mem_fun(*this, &NetworkPreferencePage::remove_peer);
+ 
+-  selection->selected_foreach(slot);
++  selection->selected_foreach_iter(slot);
+ #else
+   selection->selected_foreach(SigC::slot(*this, &NetworkPreferencePage::remove_peer));
+ #endif
