@@ -1,19 +1,24 @@
 Summary:	Program that assists in the recovery and prevention of RSI
 Summary(pl):	Program pomagaj±cy w rekonwalescencji i zapobieganiu RSI
 Name:		workrave
-Version:	1.0.0
-Release:	0.9
+Version:	1.4.0
+Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
-# Source0-md5:	2019087e400dceac6d309759e62d1e54
+# Source0-md5:	d5bd1127b533b6d613335f7f240005ad
 URL:		http://workrave.sourceforge.net/
+BuildRequires:	GConf2-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
+Buildrequires:	gdome2-devel
 BuildRequires:	gettext-devel
-BuildRequires:	gnet-devel
-BuildRequires:	gtkmm-devel >= 2.0
-BuildRequires:	libsigc++-devel
+BuildRequires:	gnet-devel >= 2.0.0
+BuildRequires:	gnome-panel-devel >= 2.0.10
+BuildRequires:	gtkmm-devel >= 2.1.0
+BuildRequires:	libbonobo-devel >= 2.0.0
+BuildRequires:	libgnomeuimm-devel
+BuildRequires:	libsigc++-devel >= 1.2.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -38,20 +43,33 @@ rm -f missing
 %{__autoconf}
 %{__autoheader}
 %{__automake}
-%configure
+%configure \
+	--enable-gconf \
+	--enable-xml \
+	--enable-exercises
+	
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
+
+%find_lang %{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc ChangeLog README
 %attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_libdir}/%{name}-applet
+%{_libdir}/bonobo/servers/*
+%{_sysconfdir}/sound/events/*
 %{_datadir}/%{name}
+%{_datadir}/gnome-2.0/ui/*
+%{_datadir}/sounds/*
+%{_pixmapsdir}/*
