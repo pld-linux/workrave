@@ -11,10 +11,11 @@ Version:	1.6.0
 Release:	1
 License:	GPL
 Group:		X11/Applications
-#Source0:	http://www.workrave.org/download/snapshots/20040429/workrave-src-20040429.tar.gz
 Source0:	http://dl.sourceforge.net/workrave/%{name}-%{version}.tar.gz
-# Source0-md5:	3c87e892eb4670325d9004d2382cc33d
 URL:		http://www.workrave.org/
+Patch0:		workrave-libsigc20.patch
+Patch1:		workrave-fakex.patch
+BuildRequires:	GConf2-devel
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
 BuildRequires:	GConf2-devel
@@ -45,7 +46,13 @@ Program czêsto przypomina o konieczno¶ci robienia krótkich pauz,
 przerw na odpoczynek i ogranicza dzienny limit pracy.
 
 %prep
+<<<<<<< workrave.spec
+%setup -q -n workrave-1.6.0
+%patch0 -p1
+%patch1 -p1
+=======
 %setup -q
+>>>>>>> 1.19
 
 %build
 rm -f missing
