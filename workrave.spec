@@ -1,5 +1,3 @@
-# TODO:
-# - BRs check
 #
 # Conditional build:
 %bcond_without	gnome		# build without GNOME support
@@ -17,18 +15,19 @@ Source0:	http://dl.sourceforge.net/workrave/%{name}-%{version}.tar.gz
 URL:		http://www.workrave.org/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
-BuildRequires:	GConf2-devel
+BuildRequires:	doxygen
 BuildRequires:	gdome2-devel
 BuildRequires:	gettext-devel
 BuildRequires:	gnet-devel >= 2.0.0
-BuildRequires:	gtkmm-devel >= 2.1.0
-BuildRequires:	libsigc++12-devel >= 1.2.0
+BuildRequires:	gtkmm-devel >= 2.4.0
+BuildRequires:	libsigc++-devel >= 2.0.0
 BuildRequires:	pkgconfig
 %if %{with gnome}
 BuildRequires:	GConf2-devel >= 2.4.0
+BuildRequires:	ORBit2-devel >= 2.8.3
 BuildRequires:	gnome-panel-devel >= 2.4.0
 BuildRequires:	libbonobo-devel >= 2.4.0
-BuildRequires:	libgnomeuimm-devel >= 2.0.0
+BuildRequires:	libgnomeuimm-devel >= 2.8.0
 %endif
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
