@@ -9,9 +9,8 @@ Version:	1.6.0.snap20040429
 Release:	1
 License:	GPL
 Group:		X11/Applications
-#Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
-## Source0-md5:	68f9cbb2b20e4295abed174c51d018b5
-Source: http://www.workrave.org/download/snapshots/20040429/workrave-src-20040429.tar.gz
+Source0: http://www.workrave.org/download/snapshots/20040429/workrave-src-20040429.tar.gz
+# Source0-md5:	879e7f2ea39ca9bc275cf84dafb01195
 URL:		http://workrave.sourceforge.net/
 Patch:		workrave-libsigc20.patch
 BuildRequires:	GConf2-devel
