@@ -23,7 +23,7 @@ BuildRequires:	gettext-devel
 BuildRequires:	gtkmm-devel >= 2.1.0
 %{?with_gnome:BuildRequires:	libbonobo-devel >= 2.4.0}
 %{?with_gnome:BuildRequires:	libgnomeuimm-devel >= 2.0.0}
-BuildRequires:	libsigc++-devel >= 1.2.0
+BuildRequires:	libsigc++12-devel >= 1.2.0
 BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
