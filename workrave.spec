@@ -6,9 +6,12 @@ License:	GPL
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
 URL:		http://workrave.sourceforge.net
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	gettext-devel
 BuildRequires:	gnet-devel
+BuildRequires:	gtkmm-devel >= 2.0
 BuildRequires:	libsigc++-devel
-BuildRequires:	gtkmm-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -17,7 +20,7 @@ Repetitive Strain Injury (RSI). The program frequently alerts you to
 take micro-pauses, rest breaks and restricts you to your daily limit.
 
 %prep
-%setup -q -n %{name}-%{version}
+%setup -q
 
 %build
 rm -f missing
