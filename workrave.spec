@@ -1,10 +1,10 @@
-Summary:	Program that assists in the recovery and prevention of RSI.
+Summary:	Program that assists in the recovery and prevention of RSI
 Name:		workrave
 Version:	1.0.0
 Release:	0.9
 License:	GPL
 Group:		X11/Applications
-Source0:	%{name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
 URL:		http://workrave.sourceforge.net
 BuildRequires:	gnet-devel
 BuildRequires:	libsigc++-devel
