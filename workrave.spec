@@ -6,6 +6,7 @@ Release:	0.9
 License:	GPL
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
+# Source0-md5:	2019087e400dceac6d309759e62d1e54
 URL:		http://workrave.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
