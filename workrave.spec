@@ -6,7 +6,7 @@ Summary:	Program that assists in the recovery and prevention of RSI
 Summary(pl):	Program pomagaj±cy w rekonwalescencji i zapobieganiu RSI
 Name:		workrave
 Version:	1.4.0
-Release:	3
+Release:	4
 License:	GPL
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
@@ -21,7 +21,7 @@ BuildRequires:	gettext-devel
 %{!?_without_gnome:BuildRequires:	gnome-panel-devel >= 2.0.10}
 BuildRequires:	gtkmm-devel >= 2.1.0
 %{!?_without_gnome:BuildRequires:	libbonobo-devel >= 2.0.0}
-%{!?_without_gnome:BuildRequires:	libgnomeuimm-devel}
+%{!?_without_gnome:BuildRequires:	libgnomeuimm-devel >= 2.0.0}
 BuildRequires:	libsigc++-devel >= 1.2.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
