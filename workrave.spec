@@ -5,13 +5,15 @@
 Summary:	Program that assists in the recovery and prevention of RSI
 Summary(pl):	Program pomagaj±cy w rekonwalescencji i zapobieganiu RSI
 Name:		workrave
-Version:	1.4.1
+Version:	1.6.0.snap20040429
 Release:	1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
-# Source0-md5:	68f9cbb2b20e4295abed174c51d018b5
+#Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
+## Source0-md5:	68f9cbb2b20e4295abed174c51d018b5
+Source: http://www.workrave.org/download/snapshots/20040429/workrave-src-20040429.tar.gz
 URL:		http://workrave.sourceforge.net/
+Patch:		workrave-libsigc20.patch
 BuildRequires:	GConf2-devel
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
@@ -40,7 +42,8 @@ Program czêsto przypomina o konieczno¶ci robienia krótkich pauz,
 przerw na odpoczynek i ogranicza dzienny limit pracy.
 
 %prep
-%setup -q
+%setup -q -n workrave-1.6.0
+%patch -p1
 
 %build
 rm -f missing
