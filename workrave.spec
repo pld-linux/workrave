@@ -2,7 +2,7 @@ Summary:	Program that assists in the recovery and prevention of RSI
 Summary(pl):	Program pomagaj±cy w rekonwalescencji i zapobieganiu RSI
 Name:		workrave
 Version:	1.4.0
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
@@ -11,13 +11,13 @@ URL:		http://workrave.sourceforge.net/
 BuildRequires:	GConf2-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
-Buildrequires:	gdome2-devel
+%{!?_without_gnome:Buildrequires:	gdome2-devel}
 BuildRequires:	gettext-devel
-BuildRequires:	gnet-devel >= 2.0.0
-BuildRequires:	gnome-panel-devel >= 2.0.10
+%{!?_without_gnome:BuildRequires:	gnet-devel >= 2.0.0}
+%{!?_without_gnome:BuildRequires:	gnome-panel-devel >= 2.0.10}
 BuildRequires:	gtkmm-devel >= 2.1.0
-BuildRequires:	libbonobo-devel >= 2.0.0
-BuildRequires:	libgnomeuimm-devel
+%{!?_without_gnome:BuildRequires:	libbonobo-devel >= 2.0.0}
+%{!?_without_gnome:BuildRequires:	libgnomeuimm-devel}
 BuildRequires:	libsigc++-devel >= 1.2.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -44,7 +44,8 @@ rm -f missing
 %{__autoheader}
 %{__automake}
 %configure \
-	--enable-gconf \
+%{?_without_gnome:	--disable-gnome} \
+%{!?_without_gnome:		--enable-gconf} \
 	--enable-xml \
 	--enable-exercises
 	
