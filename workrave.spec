@@ -13,7 +13,7 @@ Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
 # Source0-md5:	d5bd1127b533b6d613335f7f240005ad
 URL:		http://workrave.sourceforge.net/
 BuildRequires:	GConf2-devel
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
 %{!?_without_gnome:Buildrequires:	gdome2-devel}
 BuildRequires:	gettext-devel
@@ -23,6 +23,7 @@ BuildRequires:	gtkmm-devel >= 2.1.0
 %{!?_without_gnome:BuildRequires:	libbonobo-devel >= 2.0.0}
 %{!?_without_gnome:BuildRequires:	libgnomeuimm-devel >= 2.0.0}
 BuildRequires:	libsigc++-devel >= 1.2.0
+BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
