@@ -1,3 +1,5 @@
+# TODO:
+# - BRs check
 #
 # Conditional build:
 %bcond_without	gnome		# build without GNOME support
@@ -5,27 +7,29 @@
 Summary:	Program that assists in the recovery and prevention of RSI
 Summary(pl):	Program pomagaj±cy w rekonwalescencji i zapobieganiu RSI
 Name:		workrave
-Version:	1.6.0.snap20040429
+Version:	1.6.0
 Release:	1
 License:	GPL
 Group:		X11/Applications
-Source0: http://www.workrave.org/download/snapshots/20040429/workrave-src-20040429.tar.gz
-# Source0-md5:	879e7f2ea39ca9bc275cf84dafb01195
-URL:		http://workrave.sourceforge.net/
-Patch:		workrave-libsigc20.patch
-BuildRequires:	GConf2-devel
+#Source0:	http://www.workrave.org/download/snapshots/20040429/workrave-src-20040429.tar.gz
+Source0:	http://dl.sourceforge.net/workrave/%{name}-%{version}.tar.gz
+# Source0-md5:	3c87e892eb4670325d9004d2382cc33d
+URL:		http://www.workrave.org/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
-%{?with_gnome:Buildrequires:	GConf2-devel >= 2.4.0}
-%{?with_gnome:Buildrequires:	gdome2-devel}
+BuildRequires:	GConf2-devel
 BuildRequires:	gettext-devel
-%{?with_gnome:BuildRequires:	gnet-devel >= 2.0.0}
-%{?with_gnome:BuildRequires:	gnome-panel-devel >= 2.4.0}
 BuildRequires:	gtkmm-devel >= 2.1.0
-%{?with_gnome:BuildRequires:	libbonobo-devel >= 2.4.0}
-%{?with_gnome:BuildRequires:	libgnomeuimm-devel >= 2.0.0}
 BuildRequires:	libsigc++12-devel >= 1.2.0
 BuildRequires:	pkgconfig
+%if %{with gnome}
+Buildrequires:	GConf2-devel >= 2.4.0
+Buildrequires:	gdome2-devel
+BuildRequires:	gnet-devel >= 2.0.0
+BuildRequires:	gnome-panel-devel >= 2.4.0
+BuildRequires:	libbonobo-devel >= 2.4.0
+BuildRequires:	libgnomeuimm-devel >= 2.0.0
+%endif
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -41,8 +45,7 @@ Program czêsto przypomina o konieczno¶ci robienia krótkich pauz,
 przerw na odpoczynek i ogranicza dzienny limit pracy.
 
 %prep
-%setup -q -n workrave-1.6.0
-%patch -p1
+%setup -q
 
 %build
 rm -f missing
@@ -52,8 +55,8 @@ rm -f missing
 %{__autoheader}
 %{__automake}
 %configure \
-%{!?with_gnome:	--disable-gnome} \
-%{?with_gnome:		--enable-gconf} \
+	%{!?with_gnome:--disable-gnome} \
+	%{?with_gnome:--enable-gconf} \
 	--enable-xml \
 	--enable-exercises
 	
@@ -61,7 +64,6 @@ rm -f missing
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
