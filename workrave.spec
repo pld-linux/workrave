@@ -7,25 +7,25 @@
 Summary:	Program that assists in the recovery and prevention of RSI
 Summary(pl):	Program pomagaj±cy w rekonwalescencji i zapobieganiu RSI
 Name:		workrave
-Version:	1.6.0
+Version:	1.6.2
 Release:	1
 License:	GPL
 Group:		X11/Applications
 #Source0:	http://www.workrave.org/download/snapshots/20040429/workrave-src-20040429.tar.gz
 Source0:	http://dl.sourceforge.net/workrave/%{name}-%{version}.tar.gz
-# Source0-md5:	3c87e892eb4670325d9004d2382cc33d
+# Source0-md5:	83c96c8eebf81fed8307a56dd1ee0905
 URL:		http://www.workrave.org/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
 BuildRequires:	GConf2-devel
+BuildRequires:	gdome2-devel
 BuildRequires:	gettext-devel
+BuildRequires:	gnet-devel >= 2.0.0
 BuildRequires:	gtkmm-devel >= 2.1.0
 BuildRequires:	libsigc++12-devel >= 1.2.0
 BuildRequires:	pkgconfig
 %if %{with gnome}
-Buildrequires:	GConf2-devel >= 2.4.0
-Buildrequires:	gdome2-devel
-BuildRequires:	gnet-devel >= 2.0.0
+BuildRequires:	GConf2-devel >= 2.4.0
 BuildRequires:	gnome-panel-devel >= 2.4.0
 BuildRequires:	libbonobo-devel >= 2.4.0
 BuildRequires:	libgnomeuimm-devel >= 2.0.0
@@ -77,10 +77,12 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc ChangeLog README
 %attr(755,root,root) %{_bindir}/*
-%attr(755,root,root) %{_libdir}/%{name}-applet
-%{_libdir}/bonobo/servers/*
 %{_sysconfdir}/sound/events/*
 %{_datadir}/%{name}
-%{_datadir}/gnome-2.0/ui/*
 %{_datadir}/sounds/*
 %{_pixmapsdir}/*
+%if %{with gnome}
+%attr(755,root,root) %{_libdir}/%{name}-applet
+%{_libdir}/bonobo/servers/*
+%{_datadir}/gnome-2.0/ui/*
+%endif
