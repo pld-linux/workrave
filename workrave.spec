@@ -1,6 +1,6 @@
 #
 # Conditional build:
-# _without_gnome - build without GNOME support
+%bcond_without	gnome		# build without GNOME support
 #
 Summary:	Program that assists in the recovery and prevention of RSI
 Summary(pl):	Program pomagaj±cy w rekonwalescencji i zapobieganiu RSI
@@ -15,14 +15,14 @@ URL:		http://workrave.sourceforge.net/
 BuildRequires:	GConf2-devel
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
-%{!?_without_gnome:Buildrequires:	GConf2-devel >= 2.4.0}
-%{!?_without_gnome:Buildrequires:	gdome2-devel}
+%{?with_gnome:Buildrequires:	GConf2-devel >= 2.4.0}
+%{?with_gnome:Buildrequires:	gdome2-devel}
 BuildRequires:	gettext-devel
-%{!?_without_gnome:BuildRequires:	gnet-devel >= 2.0.0}
-%{!?_without_gnome:BuildRequires:	gnome-panel-devel >= 2.4.0}
+%{?with_gnome:BuildRequires:	gnet-devel >= 2.0.0}
+%{?with_gnome:BuildRequires:	gnome-panel-devel >= 2.4.0}
 BuildRequires:	gtkmm-devel >= 2.1.0
-%{!?_without_gnome:BuildRequires:	libbonobo-devel >= 2.4.0}
-%{!?_without_gnome:BuildRequires:	libgnomeuimm-devel >= 2.0.0}
+%{?with_gnome:BuildRequires:	libbonobo-devel >= 2.4.0}
+%{?with_gnome:BuildRequires:	libgnomeuimm-devel >= 2.0.0}
 BuildRequires:	libsigc++-devel >= 1.2.0
 BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -50,8 +50,8 @@ rm -f missing
 %{__autoheader}
 %{__automake}
 %configure \
-%{?_without_gnome:	--disable-gnome} \
-%{!?_without_gnome:		--enable-gconf} \
+%{!?with_gnome:	--disable-gnome} \
+%{?with_gnome:		--enable-gconf} \
 	--enable-xml \
 	--enable-exercises
 	
