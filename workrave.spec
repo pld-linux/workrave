@@ -6,7 +6,7 @@ Summary:	Program that assists in the recovery and prevention of RSI
 Summary(pl):	Program pomagaj±cy w rekonwalescencji i zapobieganiu RSI
 Name:		workrave
 Version:	1.4.0
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
