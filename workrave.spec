@@ -1,25 +1,30 @@
 #
 # Conditional build:
 %bcond_without	gnome		# build without GNOME support
+%bcond_with	kde		# KDE support
 #
 Summary:	Program that assists in the recovery and prevention of RSI
 Summary(pl):	Program pomagaj±cy w rekonwalescencji i zapobieganiu RSI
 Name:		workrave
-Version:	1.6.2
-Release:	1
+Version:	1.8.1
+Release:	0.1
 License:	GPL
 Group:		X11/Applications
 #Source0:	http://www.workrave.org/download/snapshots/20040429/workrave-src-20040429.tar.gz
 Source0:	http://dl.sourceforge.net/workrave/%{name}-%{version}.tar.gz
-# Source0-md5:	83c96c8eebf81fed8307a56dd1ee0905
+# Source0-md5:	3a22ef8488fc2c9fe3b02f9c33b1cfb2
 URL:		http://www.workrave.org/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
+BuildRequires:	dbus-devel
 BuildRequires:	doxygen
 BuildRequires:	gdome2-devel
 BuildRequires:	gettext-devel
 BuildRequires:	gnet-devel >= 2.0.0
 BuildRequires:	gtkmm-devel >= 2.4.0
+%if %{with kde}
+BuildRequires:	kdelibs-devel
+%endif
 BuildRequires:	libsigc++-devel >= 2.0.0
 BuildRequires:	pkgconfig
 %if %{with gnome}
@@ -49,13 +54,15 @@ przerw na odpoczynek i ogranicza dzienny limit pracy.
 %build
 rm -f missing
 %{__gettextize}
-%{__aclocal}
+%{__aclocal} -I m4
 %{__autoconf}
 %{__autoheader}
 %{__automake}
 %configure \
-	%{!?with_gnome:--disable-gnome} \
-	%{?with_gnome:--enable-gconf} \
+	--%{?with_gnome:en}%{!?with_gnome:dis}able-gnome \
+	--%{?with_gnome:en}%{!?with_gnome:dis}able-gconf \
+	--%{?with_kde:en}%{!?with_kde:dis}able-kde \
+	--enable-dbus \
 	--enable-xml \
 	--enable-exercises
 	
