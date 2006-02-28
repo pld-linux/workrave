@@ -65,7 +65,7 @@ rm -f missing
 	--enable-dbus \
 	--enable-xml \
 	--enable-exercises
-	
+
 %{__make}
 
 %install
