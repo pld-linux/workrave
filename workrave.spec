@@ -4,7 +4,7 @@
 %bcond_with	kde		# KDE support
 #
 Summary:	Program that assists in the recovery and prevention of RSI
-Summary(pl):	Program pomagaj±cy w rekonwalescencji i zapobieganiu RSI
+Summary(pl.UTF-8):   Program pomagajÄ…cy w rekonwalescencji i zapobieganiu RSI
 Name:		workrave
 Version:	1.8.1
 Release:	0.1
@@ -41,11 +41,11 @@ Workrave is a program that assists in the recovery and prevention of
 Repetitive Strain Injury (RSI). The program frequently alerts you to
 take micro-pauses, rest breaks and restricts you to your daily limit.
 
-%description -l pl
-Workrave to program pomagaj±cy w rekonwalescencji i zapobieganiu RSI
-(Repetitive Strain Injury - dolegliwo¶ciom spowodowanym powtarzaniem
-tych samych czynno¶ci, najczê¶ciej podczas pracy przy komputerze).
-Program czêsto przypomina o konieczno¶ci robienia krótkich pauz,
+%description -l pl.UTF-8
+Workrave to program pomagajÄ…cy w rekonwalescencji i zapobieganiu RSI
+(Repetitive Strain Injury - dolegliwoÅ›ciom spowodowanym powtarzaniem
+tych samych czynnoÅ›ci, najczÄ™Å›ciej podczas pracy przy komputerze).
+Program czÄ™sto przypomina o koniecznoÅ›ci robienia krÃ³tkich pauz,
 przerw na odpoczynek i ogranicza dzienny limit pracy.
 
 %prep
