@@ -4,7 +4,7 @@
 %bcond_with	kde		# KDE support
 #
 Summary:	Program that assists in the recovery and prevention of RSI
-Summary(pl.UTF-8):   Program pomagający w rekonwalescencji i zapobieganiu RSI
+Summary(pl.UTF-8):	Program pomagający w rekonwalescencji i zapobieganiu RSI
 Name:		workrave
 Version:	1.8.1
 Release:	0.1
