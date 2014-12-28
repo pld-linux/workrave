@@ -19,7 +19,7 @@ BuildRequires:	automake
 BuildRequires:	dbus-devel
 BuildRequires:	doxygen
 BuildRequires:	gdome2-devel
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	gnet-devel >= 2.0.0
 BuildRequires:	gtkmm-devel >= 2.4.0
 %if %{with kde}
